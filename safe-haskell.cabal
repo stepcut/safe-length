@@ -1,0 +1,17 @@
+name:                safe-haskell
+version:             0.1.0.0
+synopsis:            Tired of accidentally calling length on tuples? Relief at last!
+homepage:            http://www.github.com/stepcut/safe-haskell
+license:             BSD3
+license-file:        LICENSE
+author:              Jeremy Shaw
+maintainer:          jeremy@n-heptane.com
+category:            Data
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Data.Length, Tuple
+  build-depends:       base >=4.8 && <4.9
+  hs-source-dirs:      src
+  default-language:    Haskell2010
