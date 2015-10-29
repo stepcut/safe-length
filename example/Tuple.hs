@@ -1,7 +1,7 @@
 module Main where
 
-import Data.SafeLength (safeLength)
 import Data.Proxy (Proxy(..))
+import Safe.Length (safeLength)
 
 main :: IO ()
 main = print $ safeLength (Proxy :: Proxy [Char]) ('a', 'b')

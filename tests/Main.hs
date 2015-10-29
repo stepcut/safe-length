@@ -8,8 +8,8 @@
 ------------------------------------------------------------------------------
 module Main where
 
-import Data.SafeLength
 import Data.Proxy (Proxy(..))
+import Safe.Length (safeLength)
 import Test.Hspec
 import Test.QuickCheck (property)
 import Test.ShouldNotTypecheck (shouldNotTypecheck)

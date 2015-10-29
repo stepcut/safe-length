@@ -1,6 +1,6 @@
 module Main where
 
-import Data.SafeLength (safeLength)
+import Safe.Length (safeLength)
 import Data.Proxy (Proxy(..))
 
 main :: IO ()
