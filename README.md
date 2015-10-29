@@ -96,5 +96,5 @@ We get not 1, not 2, but **3** type errors
 
 That's right! 3 type errors for the low, low price of $0.00.
 
-Act now and we'll throw in these free unit tests at no additional
+Act now and we'll throw in [these unit tests](https://github.com/stepcut/safe-length/blob/master/tests/Main.hs) at no additional
 cost! Don't delay! Hackage servers are standing by!
