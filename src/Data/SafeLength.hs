@@ -1,4 +1,4 @@
-module Data.Length where
+module Data.SafeLength where
 
 import Data.Proxy (Proxy(..))
 

@@ -8,7 +8,7 @@
 ------------------------------------------------------------------------------
 module Main where
 
-import Data.Length
+import Data.SafeLength
 import Data.Proxy (Proxy(..))
 import Test.Hspec
 import Test.QuickCheck (property)

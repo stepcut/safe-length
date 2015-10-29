@@ -1,10 +1,11 @@
 Are you sick and tired of accidentally applying `length` to a tuple
-and getting back `1` instead of a compilation error?
+and getting back `1` instead of a compilation error? Does it make you
+feel like giving up on Haskell?
 
 At last, there is a solution -- `safeLength`. For zero easy payments
 of 0 dollars and 00 cents, you can get the type safety you long for!
 
-Before if you accidentally wrote:
+Before, if you accidentally wrote:
 
     main :: IO ()
     main = print $ length ('a', 'b')
@@ -36,7 +37,18 @@ You now get the glorious error:
           print $ safeLength (Proxy :: Proxy [Char]) ('a', 'b')
     Failed, modules loaded: Data.Length.
 
-But wait! There's more! What if you had nested lists and you
+"But wait!", you say. "I want to take the length of a tuple." No
+problem! `safeLength` can do that too!
+
+    main :: IO ()
+    main = print $ safeLength (Proxy :: Proxy (Char, Char)) ('a', 'b')
+
+As desired, we get `1`:
+
+    *Main> main
+    1
+
+But that's not all! What if you had nested lists and you
 accidentally take the length of the wrong list. For example, what if
 you want the length of the outer list, but you accidentally write:
 
@@ -50,12 +62,14 @@ Oh the horror! It compiles and we get:
     *Main> main
     3
 
+And that is even using the old monomorphic, `length :: [a] -> Int`!!
+
 But with `safeLength` all is well! If we accidentally write:
 
     main :: IO ()
     main = print $ safeLength (Proxy :: Proxy [[Char]]) (head [['a', 'b', 'c']])
 
-We get not 1, not 2, but *3* type errors
+We get not 1, not 2, but **3** type errors
 
     *Main> :load example/NestedList.hs
     [1 of 2] Compiling Data.Length      ( src/Data/Length.hs, interpreted )
@@ -80,3 +94,7 @@ We get not 1, not 2, but *3* type errors
         In the first argument of ‘head’, namely ‘[['a', 'b', 'c']]’
     Failed, modules loaded: Data.Length.
 
+That's right! 3 type errors for the low, low price of $0.00.
+
+Act now and we'll throw in these free unit tests at no additional
+cost! Don't delay! Hackage servers are standing by!

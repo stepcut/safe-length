@@ -1,7 +1,7 @@
-name:                safe-haskell
+name:                safe-length
 version:             0.1.0.0
 synopsis:            Tired of accidentally calling length on tuples? Relief at last!
-homepage:            http://www.github.com/stepcut/safe-haskell
+homepage:            http://www.github.com/stepcut/safe-length
 license:             BSD3
 license-file:        LICENSE
 author:              Jeremy Shaw
@@ -9,9 +9,28 @@ maintainer:          jeremy@n-heptane.com
 category:            Data
 build-type:          Simple
 cabal-version:       >=1.10
+data-files:
+    example/BrokenTuple.hs
+    example/GoodTuple.hs
+    example/List.hs
+    example/NestedList.hs
+    example/OldList.hs
+    example/Tuple.hs
 
 library
-  exposed-modules:     Data.Length, Tuple
+  exposed-modules:     Data.SafeLength
   build-depends:       base >=4.8 && <4.9
   hs-source-dirs:      src
+  default-language:    Haskell2010
+
+test-suite tests
+  type:                exitcode-stdio-1.0
+  main-is:             Main.hs
+  hs-source-dirs:      tests
+  build-depends:       base,
+                       hspec,
+                       hspec-core,
+                       QuickCheck,
+                       safe-length,
+                       should-not-typecheck
   default-language:    Haskell2010
