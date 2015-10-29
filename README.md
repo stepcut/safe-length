@@ -37,7 +37,7 @@ You now get the glorious error:
           print $ safeLength (Proxy :: Proxy [Char]) ('a', 'b')
     Failed, modules loaded: Data.Length.
 
-"But wait!", you say. "I want to take the length of a tuple." No
+"But wait!", you say. "I **want** to take the length of a tuple." No
 problem! `safeLength` can do that too!
 
     main :: IO ()
@@ -48,7 +48,7 @@ As desired, we get `1`:
     *Main> main
     1
 
-But that's not all! What if you had nested lists and you
+But that's not all! What if you have nested lists and you
 accidentally take the length of the wrong list. For example, what if
 you want the length of the outer list, but you accidentally write:
 
